@@ -3,8 +3,11 @@ import { getDate } from "./dateUtil";
 export function cleanStorage() {
   const { cYear, cMonth, cDay } = getDate();
   let b = cYear + "-" + cMonth.padStart(2, "0");
-  const savedData = JSON.parse(localStorage.getItem("eventInfo"));
+  let savedData = JSON.parse(localStorage.getItem("eventInfo"));
   const newObj = {};
+  if (!savedData) {
+    savedData = {};
+  }
   Object.entries(savedData).forEach((value) => {
     let x = value[0].split("-");
     let a = x[2] + "-" + x[1].padStart(2, "0");

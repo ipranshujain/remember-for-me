@@ -1,8 +1,11 @@
 import { formatDate } from "../utils/dateUtil";
 
 export default function Upcoming(){
-    const savedData = JSON.parse(localStorage.getItem("eventInfo"))
+    let savedData = JSON.parse(localStorage.getItem("eventInfo"))
     let events = []
+    if(!savedData){
+        savedData = {}
+    }
     Object.entries(savedData).forEach((value)=>{
         if(value[1].message.trim()!=="")
         events.push({date: value[0], message: value[1].message});
