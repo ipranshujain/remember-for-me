@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import DisplayGrid from "./components/DisplayGrid";
 import InputDate from "./components/InputDate";
+import DailyTasks from "./components/DailyTasks";
+
 import { getDate, daysInMonth } from "./utils/dateUtil";
 import "./Display.css";
 import Upcoming from "./components/Upcoming";
@@ -69,6 +71,7 @@ function App() {
         </div>
         <Upcoming />
       </div>
+      <DailyTasks />
       <span className="author">Created By Pranshu Jain</span>
     </div>
   );
